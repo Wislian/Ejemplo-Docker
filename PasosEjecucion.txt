@@ -1,0 +1,38 @@
+Descargar docker desktop
+
+En terminal
+
+- docker pull node
+- docker pull mongo
+
+- docker network create mired
+
+- docker build miapp:1 .
+
+- docker create -p27017:27017 --name servmongo --network mired -e MONGO_INITDB_ROOT_USERNAME=willian -e MONGO_INITDB_ROOT_PASSWORD=password mongo
+
+- docker create -p3000:3000 --name webapp --network mired miapp:1
+
+iniciar localhost:3000 en navegador
+ir a localhost:3000/crear
+volver a local host:3000
+debe visualizarse una nueva persona
+
+para probar docker compose hay que bajar los contenedores
+
+- docker stop servmongo
+- docker stop webapp
+
+lanzar
+
+- docker compose up
+
+agregar una nueva persona
+
+salir del cmd con ctrl + c
+
+volver a correr 
+- docker compose up
+
+y se vizualizara la persona que creamos sigue despues de desmontar la aplicacion
+ya que se estan utilzando los volumenes
